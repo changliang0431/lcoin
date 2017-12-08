@@ -1,8 +1,8 @@
 #!/bin/bash
 
 dir=$(dirname "$(which "$0")")
-url_main='https://raw.githubusercontent.com/bitcoin/bitcoin/master/contrib/seeds/nodes_main.txt'
-url_testnet='https://raw.githubusercontent.com/bitcoin/bitcoin/master/contrib/seeds/nodes_test.txt'
+url_main='https://raw.githubusercontent.com/litecoin-project/litecoin/master/contrib/seeds/nodes_main.txt'
+url_testnet='https://raw.githubusercontent.com/litecoin-project/litecoin/master/contrib/seeds/nodes_test.txt'
 
 getseeds() {
   echo "$(curl -s "$1")"
@@ -10,7 +10,8 @@ getseeds() {
 
 tojs() {
   local data=$(cat)
-  local body=$(echo "$data" | head -n -1)
+  local lines=$(echo "$data" | wc -l)
+  local body=$(echo "$data" | head -n $(($lines-1))) # fix osx does not supprt `head -n -1``
   local last=$(echo "$data" | tail -n 1)
   echo "'use strict';"
   echo ''

@@ -2,11 +2,10 @@
 
 rl=0
 daemon=0
-cmd='node'
 
 if ! type perl > /dev/null 2>& 1; then
   if uname | grep -i 'darwin' > /dev/null; then
-    echo 'Bcoin requires perl to start on OSX.' >& 2
+    echo 'Lcoin requires perl to start on OSX.' >& 2
     exit 1
   fi
   rl=1
@@ -24,17 +23,7 @@ dir=$(dirname "$file")
 
 if test x"$1" = x'cli'; then
   shift
-  exec "${dir}/cli" "$@"
-  exit 1
-fi
-
-if test x"$1" = x'wallet'; then
-  exec "${dir}/cli" "$@"
-  exit 1
-fi
-
-if test x"$1" = x'rpc'; then
-  exec "${dir}/cli" "$@"
+  exec "${dir}/cli" "wallet" "$@"
   exit 1
 fi
 
@@ -43,9 +32,6 @@ for arg in "$@"; do
     --daemon)
       daemon=1
     ;;
-    --spv)
-      cmd='spvnode'
-    ;;
   esac
 done
 
@@ -53,17 +39,17 @@ if test $daemon -eq 1; then
   # And yet again, OSX doesn't support something.
   if ! type setsid > /dev/null 2>& 1; then
     (
-      "${dir}/${cmd}" "$@" > /dev/null 2>& 1 &
+      "${dir}/wallet" "$@" > /dev/null 2>& 1 &
       echo "$!"
     )
     exit 0
   fi
   (
-    setsid "${dir}/${cmd}" "$@" > /dev/null 2>& 1 &
+    setsid "${dir}/wallet" "$@" > /dev/null 2>& 1 &
     echo "$!"
   )
   exit 0
 else
-  exec "${dir}/${cmd}" "$@"
+  exec "${dir}/wallet" "$@"
   exit 1
 fi

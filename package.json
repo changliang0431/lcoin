@@ -1,20 +1,20 @@
 {
-  "name": "bcoin",
+  "name": "lcoin",
   "version": "1.0.2",
-  "description": "Bitcoin bike-shed",
+  "description": "Litecoin bike-shed",
   "license": "MIT",
-  "repository": "git://github.com/bcoin-org/bcoin.git",
-  "homepage": "https://github.com/bcoin-org/bcoin",
+  "repository": "git://github.com/bcoin-org/lcoin.git",
+  "homepage": "https://github.com/bcoin-org/lcoin",
   "bugs": {
-    "url": "https://github.com/bcoin-org/bcoin/issues"
+    "url": "https://github.com/bcoin-org/lcoin/issues"
   },
   "author": "Fedor Indutny <fedor@indutny.com>",
   "contributors": [
     "Christopher Jeffrey <chjjeffrey@gmail.com>"
   ],
   "keywords": [
-    "bcoin",
-    "bitcoin",
+    "lcoin",
+    "litecoin",
     "blockchain",
     "cryptocurrency",
     "wallet"
@@ -67,16 +67,16 @@
     "webpack": "^4.11.1",
     "webpack-cli": "^3.0.3"
   },
-  "main": "./lib/bcoin.js",
+  "main": "./lib/lcoin.js",
   "bin": {
-    "bcoin": "./bin/bcoin",
-    "bcoin-node": "./bin/node",
-    "bcoin-spvnode": "./bin/spvnode",
-    "bwallet": "./bin/bwallet"
+    "lcoin": "./bin/lcoin",
+    "lcoin-node": "./bin/node",
+    "lcoin-spvnode": "./bin/spvnode",
+    "lwallet": "./bin/lwallet"
   },
   "scripts": {
-    "browserify": "browserify -s bcoin lib/bcoin-browser.js | uglifyjs -c > bcoin.js",
-    "clean": "rm -f {browser/,}{bcoin.js,bcoin-worker.js,app.js,worker.js}",
+    "browserify": "browserify -s lcoin lib/lcoin-browser.js | uglifyjs -c > lcoin.js",
+    "clean": "rm -f {browser/,}{lcoin.js,lcoin-worker.js,app.js,worker.js}",
     "docs": "jsdoc -c jsdoc.json",
     "lint": "eslint $(cat .eslintfiles) || exit 0",
     "lint-ci": "eslint $(cat .eslintfiles)",
@@ -96,7 +96,7 @@
     "./lib/hd/wordlist": "./lib/hd/wordlist-browser.js",
     "./lib/workers/child": "./lib/workers/child-browser.js",
     "./lib/workers/parent": "./lib/workers/parent-browser.js",
-    "./lib/bcoin": "./lib/bcoin-browser.js"
+    "./lib/lcoin": "./lib/lcoin-browser.js"
   },
   "browserify": {
     "transform": [

@@ -130,10 +130,10 @@ async function testP2SH(witness, nesting) {
   const addr1 = await alice[receiveAddress]();
 
   if (witness) {
-    const type = nesting ? Address.types.SCRIPTHASH : Address.types.WITNESS;
+    const type = nesting ? Address.types.SCRIPTHASH2 : Address.types.WITNESS;
     assert.strictEqual(addr1.type, type);
   } else {
-    assert.strictEqual(addr1.type, Address.types.SCRIPTHASH);
+    assert.strictEqual(addr1.type, Address.types.SCRIPTHASH2);
   }
 
   assert((await alice[receiveAddress]()).equals(addr1));
@@ -253,12 +253,12 @@ describe('Wallet', function() {
   });
 
   it('should validate existing address', () => {
-    assert(Address.fromString('1KQ1wMNwXHUYj1nV2xzsRcKUH8gVFpTFUc', 'main'));
+    assert(Address.fromString('LdcyCZgmbwibypUeD6zAhdPEVM3mPj4zxH', 'main'));
   });
 
   it('should fail to validate invalid address', () => {
     assert.throws(() => {
-      Address.fromString('1KQ1wMNwXHUYj1nv2xzsRcKUH8gVFpTFUc', 'main');
+      Address.fromString('LdcyCZgmbwibypueD6zAhdPEVM3mPj4zxH', 'main');
     });
   });
 
