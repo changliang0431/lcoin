@@ -86,7 +86,7 @@ This will start up a full node, complete with: a blockchain, mempool, miner, p2p
 
 All logs will be written to `~/.bcoin/debug.log` by default.
 
-By default, the http server will only listen on `127.0.0.1:8332`. No auth will be required if an API key was not passed in. If you listen on any other host, auth will be required and an API key will be auto-generated if one was not passed in.
+By default, the http server will only listen on `127.0.0.1:9332`. No auth will be required if an API key was not passed in. If you listen on any other host, auth will be required and an API key will be auto-generated if one was not passed in.
 
 ## Listening Externally
 
@@ -107,7 +107,7 @@ $ bcoin --http-host=0.0.0.0 --api-key hunter2 --daemon
 API keys are used with HTTP Basic Auth:
 
 ``` bash
-$ curl http://x:hunter2@localhost:8332/
+$ curl http://x:hunter2@localhost:9332/
 ```
 
 Bcoin CLI is the prepackaged tool for hitting both the REST and RPC api.

@@ -80,7 +80,7 @@ Note that certain chain options affect the format and indexing of the chain data
 ## HTTP
 
 - `http-host`: HTTP host to listen on (default: 127.0.0.1).
-- `http-port`: HTTP port to listen on (default: 8332).
+- `http-port`: HTTP port to listen on (default: 9332).
 - `ssl-cert`: Path to SSL cert.
 - `ssl-key`: Path to SSL key.
 - `service-key`: Service key (used for accessing wallet system only).

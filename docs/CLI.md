@@ -7,7 +7,7 @@ Examples:
 ``` bash
 $ export BCOIN_API_KEY=hunter2
 $ export BCOIN_NETWORK=main
-$ export BCOIN_URI=http://localhost:8332
+$ export BCOIN_URI=http://localhost:9332
 $ bcoin cli info
 ```
 
